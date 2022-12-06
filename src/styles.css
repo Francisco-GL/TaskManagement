@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    min-width: 1250px;
+}
+
+#frase {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 4px rgba(9, 0, 59, 0.6);
+}

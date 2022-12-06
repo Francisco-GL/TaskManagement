@@ -1,0 +1,112 @@
+<body>
+    <div style="height: 100%; width: 100%;" id="principal">
+        <p id="logo-1">TASK MASTER</p>
+        <div class="row" style="width: 100%; height: 100%;">
+            <!-- <button [routerLink]="['/Components/principal']">Here!!!!</button> -->
+            <form [formGroup]="formularioRegistro">
+                <div class="d-flex justify-content-center">
+                    <div id="container" class="col-4">
+                        <h4 class="text-center mt-3">Registro</h4>
+                        <div class="m-4 p-3">
+                            <div class="form-floating">
+                                <input [ngStyle]="{'border-color': color('Correo')}" type="email" class="form-control"
+                                    formControlName="Correo" id="floatingInput" placeholder="name@example.com">
+                                <label for="floatingInput">Correo</label>
+                            </div>
+                            <div class="row">
+                                <span class="text-center" style="color: red;"
+                                    *ngIf="this.formularioRegistro.get('Correo')?.errors?.['pattern']">
+                                    Formato de correo incorrecto
+                                </span>
+                            </div>
+                            <div class="form-floating mt-3">
+                                <input [ngStyle]="{'border-color': color('Password')}" type="password"
+                                    class="form-control" formControlName="Contrasena" id="floatingPassword"
+                                    placeholder="Password">
+                                <label for="floatingPassword">Contraseña</label>
+                            </div>
+                            <div class="row">
+                                <span class="text-center" style="color: red;"
+                                    *ngIf="this.formularioRegistro.get('Contrasena')?.errors?.['required'] && this.formularioRegistro.get('Contrasena')?.touched">
+                                    Obligatorio
+                                </span>
+                                <span class="text-center" style="color: red;"
+                                    *ngIf="this.formularioRegistro.get('Contrasena')?.errors?.['minlength']">
+                                    Mínimo 6 caracteres
+                                </span>
+                            </div>
+                            <div class="form-floating mt-3">
+                                <input [ngStyle]="{'border-color': color('Password')}" type="text" class="form-control"
+                                    formControlName="Alias" id="floatingAlias" placeholder="Alias">
+                                <label for="floatingAlias">Nombre de usuario</label>
+                            </div>
+                            <div class="row">
+                                <span class="text-center" style="color: red;"
+                                    *ngIf="this.formularioRegistro.get('Alias')?.errors?.['required'] && this.formularioRegistro.get('Alias')?.touched">
+                                    Obligatorio
+                                </span>
+                            </div>
+                            <div>
+                                <form [formGroup]="fUbicacion" class="d-flex justify-content-evenly">
+                                    <div class="p-2">
+                                        <div class="form-floating mt-3">
+                                            <input [ngStyle]="{'border-color': color('Password')}" type="text"
+                                                class="form-control" formControlName="cityName" id="floatingCity"
+                                                placeholder="cityName">
+                                            <label for="floatingCity">Ciudad</label>
+                                        </div>
+                                        <div class="row">
+                                            <span class="text-center" style="color: red;"
+                                                *ngIf="this.fUbicacion.get('cityName')?.errors?.['required'] && this.fUbicacion.get('cityName')?.touched">
+                                                Obligatorio
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="p-2">
+                                        <div class="form-floating mt-3 d-flex">
+                                            <input [ngStyle]="{'border-color': color('Password')}" type="text"
+                                                class="form-control" formControlName="countryCode" id="floatingCode"
+                                                placeholder="countryCode">
+                                            <label for="floatingCode">Código de ciudad</label>
+                                            <a id="consulta" href="https://www.iban.com/country-codes"><i
+                                                    title="Consultar Código" class="bi bi-info-circle p-2"></i></a>
+                                        </div>
+                                        <div class="row">
+                                            <span class="text-center" style="color: red;"
+                                                *ngIf="this.fUbicacion.get('countryCode')?.errors?.['required'] && this.fUbicacion.get('countryCode')?.touched">
+                                                Obligatorio
+                                            </span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end m-4 pe-4">
+                            <button class="btn btn-warning" [disabled]="formularioRegistro.get('Correo')?.invalid || !formularioRegistro.value.Contrasena || formularioRegistro.get('Alias')?.errors
+                                || !fUbicacion.valid" (click)="validar()">
+                                Registrar
+                            </button>
+                        </div>
+                        <div class="m-4 text-center">
+                            <div class="d-flex justify-content-evenly pe-5 ps-5">
+                                <p>¿Ya tienes cuenta?</p>
+                                <a id="login" [routerLink]="['login']">Iniciar Sesión!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- ------------------------------------------ -->
+        <div class='light x1'></div>
+        <div class='light x2'></div>
+        <div class='light x3'></div>
+        <div class='light x4'></div>
+        <div class='light x5'></div>
+        <div class='light x6'></div>
+        <div class='light x7'></div>
+        <div class='light x8'></div>
+        <div class='light x9'></div>
+        <!-- ------------------------------------------ -->
+    </div>
+</body>

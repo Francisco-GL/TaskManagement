@@ -1,0 +1,19 @@
+#editar {
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#editar:hover {
+    transform: scale(1.2);
+    color: rgb(194, 184, 0);
+}
+
+#consulta {
+    font-size: 18px;
+    color: black;
+}
+
+#consulta:hover {
+    color: blue;
+}

@@ -1,0 +1,23 @@
+#card {
+    background-color: rgb(245, 245, 245);
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+#card:hover {
+    box-shadow: 4px 4px #c9d3ff;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+}
+
+#check {
+    font-size: 22px;
+    color: rgb(172, 1, 1);
+}
+
+#check:hover {
+    cursor: pointer;
+    color: rgb(208, 0, 0);
+}

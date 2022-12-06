@@ -1,0 +1,10 @@
+#label {
+    padding: 1rem;
+}
+
+#frase {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 4px rgba(9, 0, 59, 0.6);
+}

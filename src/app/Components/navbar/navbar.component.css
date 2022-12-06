@@ -1,0 +1,53 @@
+#menu {
+    width: 280px; 
+    background-color: rgb(118, 33, 33);
+}
+
+#op{
+    color: white;
+    font-weight: bold;
+}
+
+#op:hover{
+    color: rgb(255, 230, 0);
+    background-color: brown;
+}
+
+i {
+    padding-right: 1rem;
+    font-size: 1.3rem;
+}
+
+#options {
+    background-color: rgb(225, 123, 27);
+}
+
+#save {
+    font-size: 23px;
+    font-weight: bolder;
+}
+
+#save:hover {
+    color: rgb(0, 185, 0);
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+#frase {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 4px rgba(9, 0, 59, 0.6);
+}
+
+#clima {
+    font-size: 16px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#reload:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    color: rgb(0, 186, 176);
+    font-weight: bold;
+}

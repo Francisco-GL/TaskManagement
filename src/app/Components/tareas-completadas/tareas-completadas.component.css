@@ -1,0 +1,27 @@
+#card {
+    background-color: rgb(176, 255, 166);
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    /* height: 13rem; */
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+h6 {
+    font-size: 14px;
+}
+
+#check {
+    font-size: 22px;
+    color: rgb(37, 173, 37);
+}
+
+#check:hover {
+    cursor: pointer;
+    color: rgb(13, 88, 8);
+}
+
+#nothing {
+    height: 150px;
+    width: 150px;
+}

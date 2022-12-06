@@ -1,0 +1,71 @@
+<body>
+    <div style="height: 100%; width: 100%;" id="principal">
+        <p id="logo-1">TASK MASTER</p>
+        <div class="row" style="width: 100%; height: 100%;">
+            <!-- <button [routerLink]="['/Components/principal']">Here!!!!</button> -->
+            <form [formGroup]="formularioLogin">
+                <div class="d-flex justify-content-center">
+                    <div id="container" class="col-4">
+                        <h4 class="text-center mt-3">Iniciar Sesión</h4>
+                        <div class="m-4 p-3">
+                            <div class="form-floating">
+                                <input [ngStyle]="{'border': color('Correo')}" type="email" class="form-control"
+                                    formControlName="Correo" id="floatingInput" placeholder="name@example.com">
+                                <label for="floatingInput">Correo</label>
+                            </div>
+                            <div class="row">
+                                <span class="text-center" style="color: red;"
+                                    *ngIf="this.formularioLogin.get('Correo')?.errors?.['required'] && this.formularioLogin.get('Correo')?.touched">
+                                    Requerido
+                                </span>
+                                <span class="text-center" style="color: red;"
+                                    *ngIf="this.formularioLogin.get('Correo')?.errors?.['pattern']">
+                                    Formato de correo incorrecto
+                                </span>
+                            </div>
+                            <div class="form-floating mt-3">
+                                <input [ngStyle]="{'border': color('Password')}" type="password" class="form-control"
+                                    formControlName="Contrasena" id="floatingPassword" placeholder="Password">
+                                <label for="floatingPassword">Contraseña</label>
+                            </div>
+                            <div class="row">
+                                <span class="text-center" style="color: red;"
+                                    *ngIf="this.formularioLogin.get('Contrasena')?.errors?.['required'] && this.formularioLogin.get('Contrasena')?.touched">
+                                    Requerido
+                                </span>
+                                <span class="text-center" style="color: red;"
+                                    *ngIf="this.formularioLogin.get('Contrasena')?.errors?.['minlength']">
+                                    Mínimo 6 caracteres
+                                </span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end m-4 pe-4">
+                            <button class="btn btn-success"
+                                [disabled]="formularioLogin.get('Correo')?.invalid || !formularioLogin.value.Contrasena"
+                                (click)="validar()">
+                                Confirmar
+                            </button>
+                        </div>
+                        <div class="m-4 text-center">
+                            <div class="d-flex justify-content-evenly pe-5 ps-5">
+                                <p>¿No tienes cuenta?</p>
+                                <a id="registro" [routerLink]="['registro']">Registrate!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- ------------------------------------------ -->
+        <div class='light x1'></div>
+        <div class='light x2'></div>
+        <div class='light x3'></div>
+        <div class='light x4'></div>
+        <div class='light x5'></div>
+        <div class='light x6'></div>
+        <div class='light x7'></div>
+        <div class='light x8'></div>
+        <div class='light x9'></div>
+        <!-- ------------------------------------------ -->
+    </div>
+</body>

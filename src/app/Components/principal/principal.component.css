@@ -1,0 +1,22 @@
+#save {
+    font-size: 23px;
+    font-weight: bolder;
+}
+
+#save:hover {
+    color: rgb(0, 185, 0);
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+#frase {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 4px rgba(9, 0, 59, 0.6);
+}
+
+#clima {
+    font-size: 16px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

@@ -1,0 +1,43 @@
+<!-- <p>tareas-pendientes works!</p> -->
+<div class="d-flex flex-column justify-content-between" style="height: 65vh;">
+    <div class="row d-flex justify-content-center">
+        <div class="row justify-content-start">
+            <ng-container class="col-12" *ngIf="pendingTasks.length > 0, else noPendingTasks">
+                <h5 class="text-center mb-5">Tareas Por Realizar <i class="bi bi-clipboard2-data ms-3" style="font-size: 24px; color:rgb(147, 64, 0);"></i></h5>
+                <div *ngFor="let task of pendingTasks | paginate:{ id:'foo',itemsPerPage: 6, currentPage: pages }"
+                    class="col-4 mb-3">
+                    <div class="d-flex justify-content-start" id="card">
+                        <div class="col-12 d-flex justify-content-between">
+                            <div>
+                                <div>
+                                    <h6>Tarea: {{task.Nombre}}</h6>
+                                </div>
+                                <h6>Descripción:</h6>
+                                <h6 class="ms-2 me-2">{{task.Descripcion}}</h6>
+                                <h6>Fecha estimada: {{task.Fecha.split('T')[0]}}</h6>
+                                <h6>Importancia: {{task.Importancia}}</h6>
+                            </div>
+                            <div (click)="done(task.Descripcion)">
+                                <i title="Realizado" class="bi bi-check-circle-fill" id="check"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #noPendingTasks>
+                <div class="mt-5 w-100" style="height: 40vh;">
+                    <div *ngIf="pendingTasks.length === 0 && completedTasks.Tareas.length === 0">
+                        <h4 class="text-center mt-3 pb-2 border-bottom border-secondary border-3"><i class="bi bi-exclamation-triangle me-2"></i> De momento no se tiene registro de Tareas Creadas <i class="bi bi-folder-x ms-2"></i></h4>
+                    </div>
+                    <div *ngIf="pendingTasks.length === 0 && completedTasks.Tareas.length > 0">
+                        <h4 class="text-center mt-3 pb-2 border-bottom border-secondary border-3"><i class="bi bi-fire me-2" style="color: rgb(185, 49, 49);"></i> Sin Tareas Pendientes <i class="bi bi-tencent-qq ms-2"></i></h4>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <div *ngIf="pendingTasks.length > 0 && pendingTasks.length > 6">
+        <pagination-controls class="text-center align-self-end" (pageChange)="pages = $event" id="foo">
+        </pagination-controls>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<!-- <p>tareas works!</p> -->
+<div class="row d-flex justify-content-center">
+    <h5 class="text-center mb-4">Registrar Nueva Tarea<i class="bi bi-clipboard2-plus ms-3" style="font-size: 24px; color:rgb(186, 0, 0);"></i></h5>
+    <form [formGroup]="formularioTarea" class="col-8">
+        <div class="p-4" id="frase">
+            <div class="row">
+                <div id="label" class="form-floating col-6">
+                    <input type="text" class="form-control" formControlName="Nombre" id="floatingInput"
+                        placeholder="tarea">
+                    <label for="floatingInput" class="ms-3 mt-3">Alias de Tarea</label>
+                    <div class="row">
+                        <span class="text-center" style="color: red;"
+                            *ngIf="this.formularioTarea.get('Correo')?.errors?.['required'] && this.formularioTarea.get('Correo')?.touched">
+                            Requerido
+                        </span>
+                        <span class="text-center" style="color: red;"
+                            *ngIf="this.formularioTarea.get('Correo')?.errors?.['pattern']">
+                            Formato de correo incorrecto
+                        </span>
+                    </div>
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" formControlName="Descripcion" id="floatingTextarea2"
+                        style="height: 100px" placeholder="algo"></textarea>
+                    <label for="floatingTextarea2" class="ms-2">Descripción</label>
+                    <!-- <div class="row">
+                        <span class="text-center" style="color: red;"
+                            *ngIf="this.formularioTarea.get('Correo')?.errors?.['required'] && this.formularioTarea.get('Correo')?.touched">
+                            Requerido
+                        </span>
+                        <span class="text-center" style="color: red;"
+                            *ngIf="this.formularioTarea.get('Correo')?.errors?.['pattern']">
+                            Formato de correo incorrecto
+                        </span>
+                    </div> -->
+                </div>
+                <div class="d-flex justify-content-between">
+                    <div id="label" class="form-floating col-5">
+                        <input type="date" class="form-control" formControlName="Fecha" id="floatingInput"
+                            placeholder="name@example.com">
+                        <label for="floatingInput" class="ms-3 mt-3">Fecha Estimada</label>
+                        <!-- <div class="row">
+                            <span class="text-center" style="color: red;"
+                                *ngIf="this.formularioTarea.get('Correo')?.errors?.['required'] && this.formularioTarea.get('Correo')?.touched">
+                                Requerido
+                            </span>
+                            <span class="text-center" style="color: red;"
+                                *ngIf="this.formularioTarea.get('Correo')?.errors?.['pattern']">
+                                Formato de correo incorrecto
+                            </span>
+                        </div> -->
+                    </div>
+                    <div class="col-5 mt-1">
+                        <label class="mb-2">Importancia</label> <br>
+                        <select name="importancia" formControlName="Importancia" class="p-1 rounded">
+                            <option value="0" disabled></option>
+                            <option value="{{nivel}}" *ngFor="let nivel of importancia">{{nivel}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-outline-success me-3" [disabled]="!formularioTarea.valid" (click)="registrar()">Registrar</button>
+                <button class="btn btn-outline-danger" (click)="cancelar()">Cancelar</button>
+            </div>
+        </div>
+    </form>
+</div>

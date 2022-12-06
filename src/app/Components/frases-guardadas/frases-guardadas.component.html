@@ -1,0 +1,84 @@
+<div class="d-flex flex-column justify-content-between" style="height: 65vh;">
+    <div class="row d-flex justify-content-center">
+        <div class="row justify-content-start">
+            <ng-container class="col-12" *ngIf="frases.length > 0, else noSavedQuotes">
+                <h5 class="text-center mb-3">Frases Guardadas<i class="bi bi-folder-check ms-3"
+                        style="font-size: 24px; color: rgb(155, 85, 0);"></i></h5>
+                <div *ngFor="let frase of frases | paginate:{ id:'foo',itemsPerPage: 6, currentPage: pages }"
+                    class="col-4 mb-3">
+                    <div class="d-flex justify-content-start" id="card">
+                        <div class="col-12 d-flex justify-content-between">
+                            <div>
+                                <h6>Frase del día: {{frase.Fecha.split('T')[0]}}</h6>
+                                <div class="row m-1">
+                                    <h6 class="ms-4">{{frase.Frase}}</h6>
+                                    <h6 class="d-flex justify-content-center">~{{frase.Autor}}~</h6>
+                                </div>
+                                <h6 *ngIf="frase.Motivo !== ''">Opinión: {{frase.Motivo}}</h6>
+                            </div>
+                            <div (click)="delete(frase)">
+                                <i title="Eliminar" class="bi bi-trash-fill" id="check"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #noSavedQuotes>
+                <div class="mt-5 w-100" style="height: 40vh;">
+                    <div *ngIf="frases.length === 0">
+                        <h4 class="text-center mt-3 pb-2 border-bottom border-secondary border-3"><i
+                                class="bi bi-layout-wtf me-2"></i>Sin Frases Guardadas <i
+                                class="bi bi-folder-x ms-2"></i>
+                        </h4>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <div *ngIf="frases.length > 0 && frases.length > 6">
+        <pagination-controls class="text-center align-self-end" (pageChange)="pages = $event" id="foo">
+        </pagination-controls>
+    </div>
+</div>
+
+<!-- <div class="d-flex flex-column justify-content-between" style="height: 65vh;">
+    <div class="row d-flex justify-content-center">
+        <div class="row justify-content-start">
+            <ng-container class="col-12" *ngIf="completedTasks.Tareas.length > 0, else noPendingTasks">
+                <h5 class="text-center mb-5">Tareas por realizar</h5>
+                <div *ngFor="let task of completedTasks.Tareas | paginate:{ id:'foo',itemsPerPage: 6, currentPage: pages }"
+                    class="col-4 mb-3">
+                    <div class="d-flex justify-content-start" id="card">
+                        <div class="col-12 d-flex justify-content-between">
+                            <div>
+                                <div>
+                                    <h6>Tarea: {{task.Nombre}}</h6>
+                                </div>
+                                <h6>Descripción:</h6>
+                                <h6 class="ms-2 me-2">{{task.Descripcion}}</h6>
+                                <h6>Fecha estimada: {{task.Fecha.split('T')[0]}}</h6>
+                                <h6>Importancia: {{task.Importancia}}</h6>
+                            </div>
+                            <div>
+                                <i title="Realizado" class="bi bi-check-circle-fill" id="check"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #noPendingTasks>
+                <div class="mt-5 w-100" style="height: 40vh;">
+                    <div *ngIf="completedTasks.Tareas.length === 0">
+                        <h4 class="text-center mt-3 pb-2 border-bottom border-secondary border-3"><i
+                                class="bi bi-layout-wtf me-2"></i>Sin tareas completadas <i
+                                class="bi bi-folder-x ms-2"></i></h4>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <div *ngIf="completedTasks.Tareas.length > 0 && completedTasks.Tareas.length > 6">
+        <pagination-controls class="text-center align-self-end" (pageChange)="pages = $event" id="foo">
+        </pagination-controls>
+    </div>
+</div> -->
