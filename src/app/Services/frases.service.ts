@@ -19,7 +19,7 @@ export class FrasesService {
     return this.http.get<any>(this.URL_FRASE);
   }
 
-  getFraseCelebre():Observable<FraseDiaI> {
-    return this.http.get<FraseDiaI>(this.URL_fraseCelebre);
+  getFraseCelebre():Observable<any> {
+    return this.http.get<any>(this.URL_fraseCelebre);
   }
 }
