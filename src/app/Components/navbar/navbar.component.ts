@@ -100,7 +100,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     if (sessionStorage.getItem('ACCESS_TOKEN') !== null) {
-      this.obtenerFrase();
       this.getUserData();
       this.obtenerFraseCelebre();
     } else {
