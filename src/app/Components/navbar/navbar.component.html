@@ -63,15 +63,16 @@
             </div>
         </div>
     </div>
+    
     <div class="w-100 pt-4">
         <div>
             <div class="d-flex justify-content-evenly">
                 <div class="col-7" style="text-align: center; font-size: 20px;">
                     <div id="frase" class="d-flex justify-content-evenly">
-                        <div class="ps-2 text-start pb-3 pt-2" style="width: 30rem;">
-                            <h5 class="text-start">Frase Del Día</h5>
-                            <p>{{this.FraseDelDia.contents.quotes[0].quote}}</p>
-                            <div class="d-flex justify-content-end">Autor:
+                        <div class="ps-2 text-start pb-3" style="width: 30rem;">
+                            <h5 id="quote" class="text-start">Frase Del Día</h5>
+                            <p id="quote">{{this.FraseDelDia.contents.quotes[0].quote}}</p>
+                            <div id="quote" class="d-flex justify-content-end">Autor:
                                 {{this.FraseDelDia.contents.quotes[0].author}}</div>
                         </div>
                         <div class="d-flex flex-column justify-content-center">
@@ -135,7 +136,7 @@
                 </div>
             </div>
 
-            <div class="mt-5 ms-2 me-2 p-4 border-top border-secondary border-4 rounded-4">
+            <div class="mt-4 ms-2 me-2 p-4 border-top border-secondary border-4 rounded-4">
                 <router-outlet></router-outlet>
             </div>
         </div>

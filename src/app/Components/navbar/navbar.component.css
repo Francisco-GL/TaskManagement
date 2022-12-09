@@ -1,14 +1,14 @@
 #menu {
-    width: 280px; 
+    width: 280px;
     background-color: rgb(118, 33, 33);
 }
 
-#op{
+#op {
     color: white;
     font-weight: bold;
 }
 
-#op:hover{
+#op:hover {
     color: rgb(255, 230, 0);
     background-color: brown;
 }
@@ -42,7 +42,7 @@ i {
 
 #clima {
     font-size: 16px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #reload:hover {
@@ -50,4 +50,8 @@ i {
     transform: scale(1.2);
     color: rgb(0, 186, 176);
     font-weight: bold;
+}
+
+#quote {
+    font-size: 18px;
 }
