@@ -2,26 +2,61 @@
     <div class="row d-flex justify-content-center">
         <div class="row justify-content-start">
             <ng-container class="col-12" *ngIf="frases.length > 0, else noSavedQuotes">
-                <h5 class="text-center mb-3">Frases Guardadas<i class="bi bi-folder-check ms-3"
-                        style="font-size: 24px; color: rgb(155, 85, 0);"></i></h5>
-                <div *ngFor="let frase of frases | paginate:{ id:'foo',itemsPerPage: 6, currentPage: pages }"
-                    class="col-4 mb-3">
-                    <div class="d-flex justify-content-start" id="card">
-                        <div class="col-12 d-flex justify-content-between">
-                            <div>
-                                <h6>Frase del día: {{frase.Fecha.split('T')[0]}}</h6>
-                                <div class="row m-1">
-                                    <h6 class="ms-4">{{frase.Frase}}</h6>
-                                    <h6 class="d-flex justify-content-center">~{{frase.Autor}}~</h6>
+                <div id="normal">
+                    <h5 class="text-center mb-3">Frases Guardadas<i class="bi bi-folder-check ms-3"
+                            style="font-size: 24px; color: rgb(155, 85, 0);"></i></h5>
+                    <div style="height: 50vh;" class="row col-12 d-flex">
+                        <div *ngFor="let frase of frases | paginate:{ id:'foo',itemsPerPage: 6, currentPage: pages }"
+                            class="col-4 mb-3">
+                            <div class="d-flex justify-content-start" id="card">
+                                <div class="col-12 d-flex justify-content-between">
+                                    <div>
+                                        <h6>Frase del día: {{frase.Fecha.split('T')[0]}}</h6>
+                                        <div class="row m-1">
+                                            <h6 class="ms-4">{{frase.Frase}}</h6>
+                                            <h6 class="d-flex justify-content-center">~{{frase.Autor}}~</h6>
+                                        </div>
+                                        <h6 *ngIf="frase.Motivo !== ''">Opinión: {{frase.Motivo}}</h6>
+                                    </div>
+                                    <div (click)="delete(frase)">
+                                        <i title="Eliminar" class="bi bi-trash-fill" id="check"></i>
+                                    </div>
                                 </div>
-                                <h6 *ngIf="frase.Motivo !== ''">Opinión: {{frase.Motivo}}</h6>
-                            </div>
-                            <div (click)="delete(frase)">
-                                <i title="Eliminar" class="bi bi-trash-fill" id="check"></i>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- ------------------------------------------------------------- -->
+                <div id="resolution">
+                    <h5 class="text-center mb-3">Frases Guardadas<i class="bi bi-folder-check ms-3"
+                            style="font-size: 24px; color: rgb(155, 85, 0);"></i></h5>
+                    <div class="overflow-auto" id="tareas">
+                        <div *ngFor="let frase of frases">
+                            <div class="dropdown">
+                                <a class="btn d-flex justify-content-between" data-bs-toggle="dropdown" id="homework">
+                                    {{frase.Fecha}}
+                                    <i class="bi bi-caret-down-fill"></i>
+                                </a>
+                                <ul class="dropdown-menu" id="homework">
+                                    <div class="ms-3">
+                                        <div>
+                                            <h6>Frase del día: {{frase.Fecha.split('T')[0]}}</h6>
+                                            <div class="row m-1">
+                                                <h6 class="ms-4">{{frase.Frase}}</h6>
+                                                <h6 class="d-flex justify-content-center">~{{frase.Autor}}~</h6>
+                                            </div>
+                                            <h6 *ngIf="frase.Motivo !== ''">Opinión: {{frase.Motivo}}</h6>
+                                        </div>
+                                        <div (click)="delete(frase)" id="doneArrow">
+                                            <i title="Eliminar" class="bi bi-trash-fill" id="check"></i>
+                                        </div>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ------------------------------------------------------------- -->
             </ng-container>
             <ng-template #noSavedQuotes>
                 <div class="mt-5 w-100" style="height: 40vh;">
@@ -35,7 +70,7 @@
             </ng-template>
         </div>
     </div>
-    <div *ngIf="frases.length > 0 && frases.length > 6">
+    <div id="normal" *ngIf="frases.length > 0 && frases.length > 6">
         <pagination-controls class="text-center align-self-end" (pageChange)="pages = $event" id="foo">
         </pagination-controls>
     </div>

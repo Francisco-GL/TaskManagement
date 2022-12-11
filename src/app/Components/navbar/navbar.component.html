@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-start w-100" style="min-height: 100vh">
-    <div>
+    <div id="slideBar">
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white h-100" id="menu">
             <p href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                 <i class="bi bi-fan ps-3 pe-3"></i>
@@ -49,7 +49,7 @@
                 <a href="#"
                     class="d-flex align-items-center justify-content-evenly text-decoration-none dropdown-toggle"
                     id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" id="op">
-                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                    <i style="font-size: 32px;" class="bi bi-person-circle"></i>
                     <strong>{{this.userData.Alias}}</strong>
                 </a>
                 <ul class="dropdown-menu shadow" id="options" aria-labelledby="dropdownUser1">
@@ -63,10 +63,89 @@
             </div>
         </div>
     </div>
-    
-    <div class="w-100 pt-4">
-        <div>
-            <div class="d-flex justify-content-evenly">
+
+    <div class="container-fluid p-0">
+        <!-- --------------------------------------------------------------  -->
+        <div id="topBar">
+            <nav class="navbar navbar-dark" id="menu2">
+                <div class="container-fluid">
+                    <div class="d-flex w-100 flex-row-reverse justify-content-between">
+                        <p href="/"
+                            class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                            <i class="bi bi-fan ps-3 pe-3"></i>
+                            <span class="fs-4 pe-3">Task Master</span>
+                        </p>
+                        <button class="navbar-toggler" type="button" id="buttonTagg" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <div class="offcanvas offcanvas-start w-100" tabindex="-1" id="offcanvasDarkNavbar"
+                        aria-labelledby="offcanvasDarkNavbarLabel" style="background-color: rgb(118, 33, 33);">
+                        <div class="offcanvas-header">
+                            <div
+                                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                                <i class="bi bi-fan ps-3 pe-3"></i>
+                                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Task Master</h5>
+                            </div>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item" data-bs-dismiss="offcanvas">
+                                    <a [routerLink]="['/Components/tareas-pendientes']" id="op" class="nav-link"
+                                        aria-current="page">
+                                        <i class="bi bi-house"></i>
+                                        Home
+                                    </a>
+                                </li>
+                                <li data-bs-dismiss="offcanvas">
+                                    <a [routerLink]="['/Components/tareas-pendientes']" class="nav-link" id="op">
+                                        <i class="bi bi-list-ol"></i>
+                                        Tareas Pendientes
+                                    </a>
+                                </li>
+                                <li data-bs-dismiss="offcanvas">
+                                    <a [routerLink]="['/Components/tareas-completadas']" class="nav-link" id="op">
+                                        <i class="bi bi-list-check"></i>
+                                        Tareas Completadas
+                                    </a>
+                                </li>
+                                <li data-bs-dismiss="offcanvas">
+                                    <a [routerLink]="['/Components/frases-guardadas']" class="nav-link " id="op">
+                                        <i class="bi bi-folder"></i>
+                                        Frases Guardadas
+                                    </a>
+                                </li>
+                                <li data-bs-dismiss="offcanvas">
+                                    <a [routerLink]="['/Components/configuracion']" class="nav-link " id="op">
+                                        <i class="bi bi-gear"></i>
+                                        Configuración
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link " (click)="logOut()" id="op">
+                                        <i class="bi bi-box-arrow-right"></i>
+                                        Cerrar Sesión
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="text-white">
+                                <div class="d-flex align-items-center justify-content-center text-decoration-none mt-5"
+                                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i style="font-size: 25px;" class="bi bi-person-circle"></i>
+                                    <strong class="ms-2">{{this.userData.Alias}}</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- --------------------------------------------------------------  -->
+        <div class="pt-3">
+            <div class="d-flex justify-content-evenly" id="topInfo">
                 <div class="col-7" style="text-align: center; font-size: 20px;">
                     <div id="frase" class="d-flex justify-content-evenly">
                         <div class="ps-2 text-start pb-3" style="width: 30rem;">
@@ -109,8 +188,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div id="frase">
+                <div style="width: 34%;">
+                    <div id="weather">
                         <div class="d-flex justify-content-evenly">
                             <div>
                                 <img src="http://openweathermap.org/img/wn/{{weather.weather[0].icon}}@2x.png">
@@ -128,6 +207,49 @@
                                         <div>Weather: {{this.weather.weather[0].description.toUpperCase()}}</div>
                                         <div id="reload" (click)="obtenerClima(1)"><i title="Actualizar"
                                                 class="bi bi-arrow-counterclockwise p-0"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="weather2">
+                        <div class="d-flex justify-content-evenly">
+                            <div data-bs-toggle="modal" data-bs-target="#weatherModal">
+                                <img src="http://openweathermap.org/img/wn/{{weather.weather[0].icon}}@2x.png">
+                                <p id="clima">Zone: {{this.weather.name}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" tabindex="-1" id="weatherModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5>Clima</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="d-flex justify-content-evenly">
+                                        <div>
+                                            <img
+                                                src="http://openweathermap.org/img/wn/{{weather.weather[0].icon}}@2x.png">
+                                        </div>
+                                        <div>
+                                            <div class="d-flex flex-column justify-content-start">
+                                                <div id="clima">Temperature: {{this.weather.main.feels_like}}°C</div>
+                                                <div class="d-flex justify-content-between">
+                                                    <div id="clima">Min: {{this.weather.main.temp_min}}°C</div>
+                                                    <div id="clima" class="ms-4">Max: {{this.weather.main.temp_max}}°C
+                                                    </div>
+                                                </div>
+                                                <div id="clima">Humidity: {{this.weather.main.humidity}}%</div>
+                                                <div id="clima">Zone: {{this.weather.name}}</div>
+                                                <div id="clima" class="d-flex justify-content-between">
+                                                    <div>Weather: {{this.weather.weather[0].description.toUpperCase()}}
+                                                    </div>
+                                                    <div id="reload" (click)="obtenerClima(1)"><i title="Actualizar"
+                                                            class="bi bi-arrow-counterclockwise p-0"></i></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

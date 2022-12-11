@@ -3,6 +3,14 @@
     background-color: rgb(118, 33, 33);
 }
 
+#menu2 {
+    background-color: rgb(118, 33, 33);
+}
+
+#buttonTagg {
+    background-color: rgb(193, 48, 48);
+}
+
 #op {
     color: white;
     font-weight: bold;
@@ -40,6 +48,20 @@ i {
     box-shadow: 4px 4px 4px rgba(9, 0, 59, 0.6);
 }
 
+#weather {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 4px rgba(9, 0, 59, 0.6);
+}
+
+#weather2 {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 4px rgba(9, 0, 59, 0.6);
+}
+
 #clima {
     font-size: 16px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -55,3 +77,29 @@ i {
 #quote {
     font-size: 18px;
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~ */
+@media (max-width: 680px) {
+    #slideBar {
+        display: none;
+    }
+    #weather {
+        display: none;
+    }
+    #weather2 {
+        height: auto;
+    }
+    #quote {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 680px) {
+    #topBar {
+        display: none;
+    }
+    #weather2 {
+        display: none;
+    }
+}
+/* ~~~~~~~~~~~~~~~~~~~~~~~~ */
